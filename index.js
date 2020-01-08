@@ -1,10 +1,14 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
 
 //In order to make sure your server works on local & heroku you have to make sure the commandline looks like this
 //process.env.PORT=heroku's port or local port
 const PORT = process.env.PORT || 3000;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 app.get('/',(req,res)=> {
     res.send("Hot Restaurant!");
