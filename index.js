@@ -16,12 +16,12 @@ app.get('/',(req,res)=> {
     res.send("Hot Restaurant!");
 })
 
-app.get('reserve',(req,res)=> {
+app.get('/reserve',(req,res)=> {
     res.sendFile(path.join(__dirname, "reserve.html"));
 })
 
-app.get('tables',(req,res)=> {
-    res.sendFile(path.join(__dirname, ".html"));
+app.get('/tables',(req,res)=> {
+    res.sendFile(path.join(__dirname, "tables.html"));
 })
 
 
