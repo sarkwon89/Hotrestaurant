@@ -13,7 +13,7 @@ app.use(express.json());
 
 //Routing
 app.get('/',(req,res)=> {
-    res.send("Hot Restaurant!");
+    res.sendFile(path.join(__dirname, "index.html"));
 })
 
 app.get('/reserve',(req,res)=> {
