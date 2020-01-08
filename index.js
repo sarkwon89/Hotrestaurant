@@ -6,13 +6,9 @@ var app = express();
 //In order to make sure your server works on local & heroku you have to make sure the commandline looks like this
 //process.env.PORT=heroku's port or local port
 const PORT = process.env.PORT || 3000;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-var 
-
-
-
 
 
 //Routing
@@ -25,7 +21,7 @@ app.get('reserve',(req,res)=> {
 })
 
 app.get('tables',(req,res)=> {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, ".html"));
 })
 
 
