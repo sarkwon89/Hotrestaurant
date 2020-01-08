@@ -52,6 +52,15 @@ app.get("/api/waitlist", function (req, res) {
 });
 
 // Create New Characters - takes in JSON input
+app.post("/api/clear", function (req, res) {
+    // This works because of our body parsing middleware
+    tableData = []
+    waitData = []
+    res.send("cleared!")
+
+});
+
+// Create New Characters - takes in JSON input
 app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
@@ -60,10 +69,10 @@ app.post("/api/tables", function (req, res) {
 
     if (tableData.length < 5) {
         tableData.push(newReservation)
-        res.json()
+        res.json(true)
     } else {
         waitData.push(newReservation)
-        res.json()
+        res.json(false)
     }
 });
 
