@@ -13,20 +13,16 @@ app.use(express.json());
 
 
 //customer DATA
-let reservations = [{
-customerName: "sarah",
-phoneNumber: "12345",
-customerEmail: "test@test.com",
-customerID: "1",
+let tableData = [{
+        customerName: "sarah",
+        phoneNumber: "12345",
+        customerEmail: "test@test.com",
+        customerID: "1",
     }
 
 ];
 
 let waitData = [
-
-];
-
-let tableData = [
 
 ];
 
@@ -46,23 +42,26 @@ app.get('/tables', (req, res) => {
 })
 
 // Displays all characters
-app.get("/api/reservations", function(req, res) {
-    return res.json(reservations);
-  });
+app.get("/api/tables", function (req, res) {
+    return res.json(tableData);
+});
 
 // Create New Characters - takes in JSON input
-app.post("/api/reservations", function(req, res) {
+app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newReserverations = req.body;
+    var newReservation = req.body;
 
-  
-    console.log(newReserverations);
-  
-    Reservations.push(newReserverations);
-  
-    res.json(newReserverations);
-  });
+
+    if (tableData.length < 5) {
+        tableData.push(newReservation)
+        res.json()
+    } else {
+        waitData.push(newReservation)
+        res.json()
+    }
+});
+
 
 
 app.listen(PORT, function () {
