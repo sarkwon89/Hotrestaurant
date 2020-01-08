@@ -41,9 +41,14 @@ app.get('/tables', (req, res) => {
     res.sendFile(path.join(__dirname, "tables.html"));
 })
 
-// Displays all characters
+// Displays all characters that made reservations
 app.get("/api/tables", function (req, res) {
     return res.json(tableData);
+});
+
+//Displays all characters that are in waitlist
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitData);
 });
 
 // Create New Characters - takes in JSON input
